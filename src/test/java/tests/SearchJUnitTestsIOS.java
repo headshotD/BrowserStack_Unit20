@@ -3,7 +3,6 @@ package tests;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.CollectionCondition.exactTexts;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -11,12 +10,13 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
-public class SearchJUnitTests extends TestBase {
+public class SearchJUnitTestsIOS extends TestBase {
 
     @BeforeAll
     static void setup() {
-        System.setProperty("platform", "android");
+        System.setProperty("platform", "ios");
     }
+
     @Test
     void successfulSearchTestJUnit() {
         step("Type search", () -> {

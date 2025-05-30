@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.exactTexts;
@@ -12,8 +13,12 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchJUnitTests extends TestBase {
 
+    @BeforeAll
+    static void setup() {
+        System.setProperty("platform", "android");
+    }
     @Test
-    void successfulSearchTest() {
+    void successfulSearchTestJUnit() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JUnit5");

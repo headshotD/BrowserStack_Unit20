@@ -53,18 +53,12 @@ tasks.withType(Test).configureEach {
     }
 }
 
-tasks.register('android', Test) {
+tasks.register('androidTest', Test) {
     useJUnitPlatform()
     systemProperty 'platform', 'android'
 }
 
-tasks.register('ios', Test) {
+tasks.register('iosTest', Test) {
     useJUnitPlatform()
     systemProperty 'platform', 'ios'
-}
-
-tasks.register('mobileTest') {
-    dependsOn 'androidTest', 'iosTest'
-    group = 'verification'
-    description = 'Run tests on both Android and iOS devices sequentially'
 }

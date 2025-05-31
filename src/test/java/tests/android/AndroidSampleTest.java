@@ -1,4 +1,4 @@
-package tests.androidTest;
+package tests.android;
 
 import io.appium.java_client.AppiumBy;
 import org.junit.jupiter.api.Test;

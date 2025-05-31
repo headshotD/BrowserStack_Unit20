@@ -1,4 +1,4 @@
-package tests.androidTest;
+package tests.android;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

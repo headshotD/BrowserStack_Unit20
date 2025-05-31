@@ -66,3 +66,7 @@ tasks.register('iosTest', Test) {
     }
     systemProperty 'platform', 'ios'
 }
+test {
+    useJUnitPlatform()
+    systemProperty 'allure.results.directory', 'build/allure-results'
+}

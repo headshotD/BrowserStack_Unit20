@@ -55,14 +55,14 @@ tasks.withType(Test).configureEach {
 
 tasks.register('androidTest', Test) {
     useJUnitPlatform {
-        includeTags 'android'
+        include '**/android/**'
     }
     systemProperty 'platform', 'android'
 }
 
 tasks.register('iosTest', Test) {
     useJUnitPlatform {
-        includeTags 'ios'
+       include '**/ios/**'
     }
     systemProperty 'platform', 'ios'
 }

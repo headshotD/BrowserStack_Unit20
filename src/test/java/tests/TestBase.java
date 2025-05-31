@@ -20,8 +20,8 @@ public class TestBase {
         Configuration.browserSize = null;
         Configuration.timeout = 15000;
 
-        String platform = System.getProperty("platform", "android");
-        System.out.println("Тесты бегут на платформе: " + platform);
+        //String platform = System.getProperty("platform", "android");
+        //System.out.println("Тесты бегут на платформе: " + platform);
     }
 
     @BeforeEach

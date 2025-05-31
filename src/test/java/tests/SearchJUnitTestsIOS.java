@@ -13,9 +13,7 @@ public class SearchJUnitTestsIOS extends TestBase {
 
     @BeforeAll
     static void setup() {
-        if (System.getProperty("platform") == null) {
-            System.setProperty("platform", "ios");
-        }
+        System.setProperty("platform", "ios");
     }
 
     @Test

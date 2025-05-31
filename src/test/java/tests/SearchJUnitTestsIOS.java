@@ -7,7 +7,6 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
-import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
 public class SearchJUnitTestsIOS extends TestBase {
@@ -19,13 +18,13 @@ public class SearchJUnitTestsIOS extends TestBase {
 
     @Test
     void successfulSearchTestJUnit() {
-        step("Type search", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JUnit5");
+        step("Вводим слово JUnit5 для поиска", () -> {
+            $(accessibilityId("Text Button")).click();
+            $(accessibilityId("Text Input")).sendKeys("JUnit5" + "\n");
         });
 
-        step("Verify content found", () ->
-                $$(id("org.wikipedia.alpha:id/page_list_item_title"))
+        step("Проверяем найденный результат, что он больше чем 0", () ->
+                $$(accessibilityId("Text Output"))
                         .shouldHave(sizeGreaterThan(0)));
 
     }

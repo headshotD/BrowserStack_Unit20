@@ -14,7 +14,9 @@ public class SearchJUnitTestsAndroid extends TestBase {
 
     @BeforeAll
     static void setup() {
-        System.setProperty("platform", "android");
+        if (System.getProperty("platform") == null) {
+            System.setProperty("platform", "android");
+        }
     }
     @Test
     void successfulSearchTestJUnit() {

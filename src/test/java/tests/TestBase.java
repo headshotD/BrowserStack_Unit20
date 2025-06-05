@@ -36,7 +36,7 @@ public class TestBase {
         System.out.println("Session ID: " + sessionId);
 
         Attach.pageSource();
-        Attach.addVideo(sessionId);
+        Attach.addVideo(sessionId); // надо иф сделать что если браузерстэк то есть если локал то нет
         closeWebDriver();
     }
 }

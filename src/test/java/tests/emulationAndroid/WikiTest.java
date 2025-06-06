@@ -1,62 +1,47 @@
 package tests.emulationAndroid;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static io.appium.java_client.AppiumBy.id;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Tag("emulation")
 public class WikiTest extends TestBase {
-    @BeforeAll
-    static void setup() {
-        System.setProperty("platform", "emulation");
-    }
+
     @Test
-    void successfulOpenExploreScreenTest() {
-        step("Кликаем на иконку Explore", () -> {
-            $(id("org.wikipedia.alpha:id/navigation_bar_item_icon_view")).click();
+    void successfulOpenOnBoardingScreenTest() {
+        step("Проверка первого экрана", () -> {
+            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("The Free Encyclopedia"));
+            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button"))
+                    .click();
         });
 
-        step("Проверяем, что открылась Explore и содержит поисковую строку", () ->
-                $(id("org.wikipedia.alpha:id/search_container"))
-                        .shouldHave(text("Search Wikipedia")));
-
-    }
-    @Test
-    void successfulOpenSavedScreenTest() {
-        step("Кликаем на иконку Saved", () -> {
-            $(id("org.wikipedia.alpha:id/navigation_bar_item_icon_view")).click();
+        step("Проверка второго экрана", () -> {
+            $(By.id("org.wikipedia.alpha:id/secondaryTextView"))
+                    .shouldHave(text("Dive Down the Wikipedia"));
+            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button"))
+                    .shouldBe(enabled)
+                    .click();
         });
 
-        step("Проверяем, что открылась Explore", () ->
-                $(id("org.wikipedia.alpha:id/main_toolbar"))
-                        .shouldHave(text("Saved")));
-
-    }
-    @Test
-    void successfulOpenSearchScreenTest() {
-        step("Кликаем на иконку Search", () -> {
-            $(id("org.wikipedia.alpha:id/navigation_bar_item_active_indicator_view")).click();
+        step("Проверка третьего экрана", () -> {
+            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("Reading lists with sync"));
+            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button"))
+                    .shouldBe(enabled)
+                    .click();
         });
 
-        step("Проверяем, что открылась Search", () ->
-                $(id("org.wikipedia.alpha:id/history_title"))
-                        .shouldHave(text("History")));
-
-    }
-    @Test
-    void successfulOpenEditsScreenTest() {
-        step("Кликаем на иконку Edits", () -> {
-            $(id("org.wikipedia.alpha:id/navigation_bar_item_icon_view")).click();
+        step("Проверка четвертого экрана", () -> {
+            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("Data & Privacy"));
+            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_done_button"))
+                    .shouldHave(text("Get started"));
         });
-
-        step("Проверяем, что открылась Edits", () ->
-                $(id("org.wikipedia.alpha:id/main_toolbar"))
-                        .shouldHave(text("Edits")));
-
     }
-
 }

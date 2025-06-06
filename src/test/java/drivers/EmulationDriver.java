@@ -2,11 +2,11 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import config.EmulationConfig;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.annotation.Nonnull;
 import java.io.File;
@@ -21,10 +21,9 @@ public class EmulationDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         UiAutomator2Options caps = new UiAutomator2Options();
+        caps.merge(capabilities);
 
-        String platform = System.getProperty("platform", "emulation");
-        caps.setCapability("appium:automationName", "UiAutomator2");
-        caps.setCapability("emulation.url", config.url());
+        caps.setCapability("emulation.platform.name", config.platform());
         caps.setCapability("emulation.device.name", config.emulationDevice());
         caps.setCapability("emulation.os", config.emulationOsVersion());
         caps.setCapability("emulation.app.path", new File(config.appPath()).getAbsolutePath());
@@ -33,7 +32,7 @@ public class EmulationDriver implements WebDriverProvider {
         caps.setCapability("emulation.automation.name", config.automationName());
 
         try {
-            return new RemoteWebDriver(new URL(config.url()), caps);
+            return new AndroidDriver(new URL(config.url()), caps);
         } catch (MalformedURLException e) {
             throw new RuntimeException("Invalid URL", e);
         }

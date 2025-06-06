@@ -10,6 +10,9 @@ public interface EmulationConfig extends Config {
     @Key("emulation.url")
     String url();
 
+    @Key("emulation.platform.name")
+    String platform();
+
     @Key("emulation.device.name")
     String emulationDevice();
 

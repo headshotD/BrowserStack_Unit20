@@ -1,6 +1,7 @@
 package tests.android;
 
 import io.appium.java_client.AppiumBy;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,6 +14,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
+@Tag("android_browserstack")
 public class AndroidSampleTest {
 
     @Test

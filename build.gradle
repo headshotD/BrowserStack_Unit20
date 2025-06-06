@@ -66,16 +66,18 @@ tasks.register('emulation', Test) {
     systemProperty 'deviceHost', 'local'
 }
 
-tasks.register('androidTest', Test) {
+tasks.register('android_browserstack', Test) {
     useJUnitPlatform {
-        include '**/android/**'
+        includeTags 'android_browserstack'
     }
     systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'browserstack'
 }
 
-tasks.register('iosTest', Test) {
+tasks.register('ios_browserstack', Test) {
     useJUnitPlatform {
-        include '**/ios/**'
+        includeTags 'ios_browserstack'
     }
     systemProperty 'platform', 'ios'
+    systemProperty 'deviceHost', 'browserstack'
 }

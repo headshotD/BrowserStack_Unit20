@@ -3,17 +3,17 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:config.properties"
+        "classpath:browserstack.properties"
 })
 public interface BrowserstackConfig extends Config {
     @Key("browserstack.user")
-    @DefaultValue("")
     String user();
 
     @Key("browserstack.key")
     String key();
 
     @Key("browserstack.url")
+    @DefaultValue("https://hub.browserstack.com/wd/hub")
     String url();
 
     @Key("browserstack.app")

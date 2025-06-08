@@ -17,6 +17,7 @@ public class SearchJUnitTestsIOS extends TestBase {
     @BeforeAll
     static void setup() {
         System.setProperty("platform", "ios");
+        System.setProperty("app", "bs://sample.app");
     }
 
     @Test

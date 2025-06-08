@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:config.properties"
+        "classpath:emulation.properties"
 })
 public interface EmulationConfig extends Config {
 

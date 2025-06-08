@@ -23,15 +23,15 @@ public class AndroidSampleTest {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", "olegn_4osMUt");
-        caps.setCapability("browserstack.key", "5cWCPNSQgz4oq7qSkwCi");
+        caps.setCapability("browserstack.user", "olegn_JPDWZe");
+        caps.setCapability("browserstack.key", "JRwmm3z5xpvFmF9xkj4k");
 
         // Set URL of the application under test
         caps.setCapability("app", "bs://sample.app");
 
         // Specify device and os_version for testing
-        caps.setCapability("device", "Google Pixel 7 Pro");
-        caps.setCapability("os_version", "13.0");
+        caps.setCapability("device", "Google Pixel 3");
+        caps.setCapability("os_version", "9.0");
 
         // Set other BrowserStack capabilities
         caps.setCapability("project", "First Java Project");
@@ -63,7 +63,5 @@ public class AndroidSampleTest {
         // Invoke driver.quit() after the test is done to indicate that the test is completed.
         driver.quit();
 
-
     }
 }
-

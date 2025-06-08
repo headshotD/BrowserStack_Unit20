@@ -24,7 +24,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         caps.setCapability("browserstack.user", config.user());
         caps.setCapability("browserstack.key", config.key());
 
-        String platform = System.getProperty("platform");
+        String platform = System.getProperty("platform", "android");
 
         if (platform.equalsIgnoreCase("ios")) {
             caps.setCapability("device", config.iosDevice());
@@ -33,7 +33,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         } else {
             caps.setCapability("device", config.androidDevice());
             caps.setCapability("os_version", config.androidOsVersion());
-            caps.setCapability("app", config.app());
+            caps.setCapability("app", System.getProperty("app", config.app()));
         }
 
         caps.setCapability("project", "First Java Project");

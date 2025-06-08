@@ -25,7 +25,7 @@ public class TestBase {
             Configuration.browser = EmulationDriver.class.getName();
         }
         Configuration.browserSize = null;
-        Configuration.timeout = 15000;
+        Configuration.timeout = 30000;
 
         String platform = System.getProperty("platform");
         System.out.println("Тесты бегут на платформе: " + platform);

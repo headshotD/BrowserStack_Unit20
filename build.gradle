@@ -8,13 +8,12 @@ repositories {
 }
 
 def aspectjWeaverVersion = "1.9.23",
-    selenideVersion = "7.0.4",
+    selenideVersion = "6.13.0",
     restAssuredVersion = "5.3.0",
     allureVersion = "2.21.0",
     junitVersion = "5.9.3",
     slf4jVersion = "2.0.7",
-    ownerVersion = "1.0.12",
-    appiumVersion = "9.0.0"
+    ownerVersion = "1.0.12"
 
 allure {
     report {
@@ -33,10 +32,10 @@ allure {
 dependencies {
     testImplementation(
             "org.aspectj:aspectjweaver:$aspectjWeaverVersion",
-            "com.codeborne:selenide:$selenideVersion",
+            'com.codeborne:selenide:' + selenideVersion,
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.appium:java-client:$appiumVersion",
-            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.appium:java-client:8.3.0",
+            'io.rest-assured:rest-assured:' + restAssuredVersion,
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
             "org.aeonbits.owner:owner:$ownerVersion"
@@ -56,7 +55,7 @@ tasks.register('emulation', Test) {
     useJUnitPlatform {
         includeTags 'emulation'
     }
-    systemProperty 'platform', 'Android'
+    systemProperty 'platform', 'android'
     systemProperty 'deviceHost', 'local'
 }
 

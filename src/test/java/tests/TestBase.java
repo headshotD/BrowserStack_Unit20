@@ -45,8 +45,8 @@ public class TestBase {
 
         Attach.pageSource();
         //if (deviceHost.equals("browserstack")) {
-            //Attach.addVideo(sessionId);
-       // } // выдает 404...
+        //Attach.addVideo(sessionId);
+        // } // выдает 404...
         closeWebDriver();
     }
 }

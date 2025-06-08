@@ -12,7 +12,7 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
-    @Tag("android_browserstack")
+@Tag("android_browserstack")
 public class SearchJUnitTestsAndroid extends TestBase {
 
     @BeforeAll
@@ -20,11 +20,12 @@ public class SearchJUnitTestsAndroid extends TestBase {
         System.setProperty("platform", "android");
         System.setProperty("app", "bs://sample.app");
     }
+
     @Test
     void successfulSearchTestJUnit() {
         step("Вводим слово JUnit5 для поиска в вики", () -> {
             $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JUnit5");
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JUnit");
         });
 
         step("Проверяем, что результат больше чем 0", () ->

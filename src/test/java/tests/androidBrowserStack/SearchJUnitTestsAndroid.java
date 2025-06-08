@@ -12,7 +12,7 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
-@Tag("android_browserstack")
+    @Tag("android_browserstack")
 public class SearchJUnitTestsAndroid extends TestBase {
 
     @BeforeAll

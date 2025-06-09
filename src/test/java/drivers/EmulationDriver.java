@@ -23,13 +23,13 @@ public class EmulationDriver implements WebDriverProvider {
         UiAutomator2Options caps = new UiAutomator2Options();
         caps.merge(capabilities);
 
-        caps.setCapability("emulation.platform.name", config.platform());
-        caps.setCapability("emulation.device.name", config.emulationDevice());
-        caps.setCapability("emulation.os", config.emulationOsVersion());
-        caps.setCapability("emulation.app.path", new File(config.appPath()).getAbsolutePath());
-        caps.setCapability("emulation.setAppPackage", config.emulationSetAppPackage());
-        caps.setCapability("emulation.setAppActivity", config.emulationSetAppActivity());
-        caps.setCapability("emulation.automation.name", config.automationName());
+        caps.setPlatformName(config.platform());
+        caps.setDeviceName(config.emulationDevice());
+        caps.setPlatformVersion(config.emulationOsVersion());
+        caps.setApp(new File(config.appPath()).getAbsolutePath());
+        caps.setAppPackage(config.emulationSetAppPackage());
+        caps.setAppActivity(config.emulationSetAppActivity());
+        caps.setAutomationName(config.automationName());
 
         try {
             return new AndroidDriver(new URL(config.url()), caps);

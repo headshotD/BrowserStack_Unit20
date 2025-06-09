@@ -10,25 +10,25 @@ public interface EmulationConfig extends Config {
     @Key("emulation.url")
     String url();
 
-    @Key("emulation.platform.name")
+    @Key("platformName")
     String platform();
 
-    @Key("emulation.device.name")
+    @Key("deviceName")
     String emulationDevice();
 
-    @Key("emulation.os")
+    @Key("platformVersion")
     String emulationOsVersion();
 
-    @Key("emulation.setAppPackage")
+    @Key("appPackage")
     String emulationSetAppPackage();
 
-    @Key("emulation.setAppActivity")
+    @Key("appActivity")
     String emulationSetAppActivity();
 
-    @Key("emulation.automation.name")
+    @Key("automationName")
     String automationName();
 
-    @Key("emulation.app.path")
+    @Key("app")
     String appPath();
 
 }
